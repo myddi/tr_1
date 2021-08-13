@@ -1,0 +1,121 @@
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<style>
+	/*Essa parte do código é o CSS*/
+	*{
+		margin: 0;
+	}
+
+	.cover{
+		max-width: 1920px;
+	}
+</style>
+<body>
+	<script>
+		//Função que mostra uma frase//
+		function mostra(frase){
+			document.write(frase);
+		}
+
+		//Função que pula uma linha//
+		function pulaLinha(){
+			document.write("<br>");
+		}
+
+		//Função para calcular o IMC//
+		function calcula_imc(){
+			var altura = document.imcForm.altura.value;
+			var peso = document.imcForm.peso.value;
+			var calculo = (peso/(altura*altura)).toFixed(2);
+
+			if(calculo<=18.5){
+				alert("Você está muito magro, seu IMC é: " + calculo);
+				exibeResultado();
+			}
+
+			if(calculo>=18.5 && calculo<24.99){
+				alert("Você está com seu peso normal, seu IMC é: " + calculo);
+				exibeResultado();
+			}
+
+			if(calculo>=25 && calculo<29.9){
+				alert("Você está com sobrepeso, seu IMC é: " + calculo);
+				exibeResultado();
+			}
+
+			if(calculo>=30 && calculo<39.9){
+				alert("Você está com obesidade, seu IMC é: " + calculo);
+				exibeResultado();
+			}
+
+			if(calculo>=40){
+				alert("Você está com obesidade grave, seu IMC é: " + calculo);
+				exibeResultado();
+			}
+		}
+
+		function exibeResultado(){
+			var nome = document.imcForm.nome.value;
+			var altura = document.imcForm.altura.value;
+			var peso = document.imcForm.peso.value;
+			var dataNasc = document.imcForm.dataNasc.value;
+			var email = document.imcForm.email.value;
+			var telefone = document.imcForm.telefone.value;
+			var endereco = document.imcForm.end.value;
+			var calculo = (peso/(altura*altura)).toFixed(2);
+
+			document.write("Nome do usuário: " + nome);
+			pulaLinha();
+			document.write("Altura do usuário: " + altura);
+			pulaLinha();
+			document.write("Peso do usuário: " + peso);
+			pulaLinha();
+			document.write("Data de nascimento: " + dataNasc);
+			pulaLinha();
+			document.write("Email: " + email);
+			pulaLinha();
+			document.write("Telefone: " + telefone);
+			pulaLinha();
+			document.write("Endereço do usuário: " + endereco);
+			pulaLinha();
+			document.write("IMC do usuário: " + calculo);
+		}
+
+
+	</script>
+
+	<!--Inserindo a imagem no nosso site-->
+	<img src="calc.png" class="cover">
+
+	<!--Inicia o formulário-->
+	<center>
+	<form name="imcForm" id="imcForm">
+		<p><b>Nome</b><br>
+		<input type="text" id="nome" name="nome"></p><br>
+
+		<p><b>Altura</b><br>
+		<input type="text" id="altura" name="altura"></p><br>
+
+		<p><b>Peso</b><br>
+		<input type="text" id="peso" name="peso"></p><br>
+
+		<p><b>Data de nascimento</b><br>
+		<input type="date" id="dataNasc" name="dataNasc"></p><br>
+
+		<p><b>Email</b><br>
+		<input type="email" id="email" name="email"></p><br>
+
+		<p><b>Telefone</b><br>
+		<input type="tel" id="telefone" name="telefone"></p><br>
+
+		<p><b>Endereço</b><br>
+		<input type="text" id="end" name="endereco"></p><br>
+
+		<!--Inserindo botão-->
+		<input type="button" onclick="calcula_imc()" value="Enviar">
+	</form>
+	</center>
+</body>
+</html>
